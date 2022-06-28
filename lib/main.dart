@@ -1,3 +1,5 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portafolio/pages/home/home.dart';
@@ -30,7 +32,6 @@ class MyApp extends StatelessWidget {
               breakpoints: const [
                 ResponsiveBreakpoint.resize(450, name: MOBILE),
                 ResponsiveBreakpoint.resize(800, name: TABLET),
-                ResponsiveBreakpoint.resize(1000, name: TABLET),
                 ResponsiveBreakpoint.resize(1200, name: DESKTOP),
                 ResponsiveBreakpoint.resize(2460, name: "4K"),
               ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portafolio/pages/home/components/carousel.dart';
 import 'package:portafolio/pages/home/components/header.dart';
 import 'package:portafolio/utils/constants.dart';
 import 'package:portafolio/utils/globals.dart';
@@ -13,7 +14,7 @@ class Home extends StatelessWidget {
       endDrawer: Drawer(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
               vertical: 24.0,
             ),
@@ -27,12 +28,13 @@ class Home extends StatelessWidget {
                               color: kDangerColor,
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 28.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 28.0),
                             child: TextButton(
                               onPressed: headerItems[index].onTap,
                               child: Text(
                                 headerItems[index].title,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 13.0,
                                     fontWeight: FontWeight.bold),
@@ -42,12 +44,12 @@ class Home extends StatelessWidget {
                       : ListTile(
                           title: Text(
                             headerItems[index].title,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         );
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(
+                  return const SizedBox(
                     height: 10.0,
                   );
                 },
@@ -55,16 +57,13 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                child: const Header(),
-              ),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Header(),
+            Carousel(),
+          ],
         ),
       ),
     );

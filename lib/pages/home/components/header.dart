@@ -1,3 +1,5 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,28 +22,30 @@ class HeaderLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: MouseRegion(
+    return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () {},
         child: RichText(
-            text: TextSpan(children: [
-          TextSpan(
-              text: "PORTAFOLIO",
-              style: GoogleFonts.oswald(
-                  color: Colors.white,
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.bold)),
-          TextSpan(
-              text: ".",
-              style: GoogleFonts.oswald(
-                  color: kPrimaryColor,
-                  fontSize: 36.0,
-                  fontWeight: FontWeight.bold)),
-        ])),
+          text: TextSpan(
+            children: [
+              TextSpan(
+                  text: "PORTAFOLIO",
+                  style: GoogleFonts.oswald(
+                      color: Colors.white,
+                      fontSize: 32.0,
+                      fontWeight: FontWeight.bold)),
+              TextSpan(
+                  text: ".",
+                  style: GoogleFonts.oswald(
+                      color: kPrimaryColor,
+                      fontSize: 36.0,
+                      fontWeight: FontWeight.bold)),
+            ],
+          ),
+        ),
       ),
-    ));
+    );
   }
 }
 
@@ -65,13 +69,13 @@ class HeaderRow extends StatelessWidget {
                         color: kDangerColor,
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 5.0),
                       child: TextButton(
                         onPressed: item.onTap,
                         child: Text(
                           item.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 13.0,
                               fontWeight: FontWeight.bold),
@@ -82,12 +86,12 @@ class HeaderRow extends StatelessWidget {
                 : MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: Container(
-                      margin: EdgeInsets.only(right: 30.0),
+                      margin: const EdgeInsets.only(right: 30.0),
                       child: GestureDetector(
                         onTap: item.onTap,
                         child: Text(
                           item.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 13.0,
                               fontWeight: FontWeight.bold),
@@ -106,30 +110,29 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: ScreenHelper(
+    return ScreenHelper(
       desktop: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.0),
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: buildHeader(),
       ),
       mobile: buildMobileHeader(),
       tablet: buildHeader(),
-    ));
+    );
   }
 
   Widget buildMobileHeader() {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            HeaderLogo(),
+            const HeaderLogo(),
             GestureDetector(
               onTap: () {
                 Globals.scaffoldKey.currentState?.openEndDrawer();
               },
-              child: Icon(
+              child: const Icon(
                 FlutterIcons.menu_fea,
                 color: Colors.white,
                 size: 28.0,
@@ -146,7 +149,10 @@ class Header extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [HeaderLogo(), HeaderRow()],
+        children: const [
+          HeaderLogo(),
+          HeaderRow(),
+        ],
       ),
     );
   }
